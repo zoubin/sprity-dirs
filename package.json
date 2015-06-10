@@ -1,0 +1,35 @@
+{
+  "name": "sprity-dirs",
+  "version": "0.0.1",
+  "description": "apply sprity to multiple directories and generate multiple sprites and css",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {
+    "array-promise-filter": "^0.1.0",
+    "node-promisify": "^0.2.2",
+    "sprity": "^1.0.6",
+    "util-mix": "^1.2.0",
+    "xglob": "^0.1.2"
+  },
+  "devDependencies": {
+    "sprity": "^1.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoubin/sprity-dirs.git"
+  },
+  "keywords": [
+    "sprity",
+    "multiple",
+    "directories"
+  ],
+  "author": "zoubin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zoubin/sprity-dirs/issues"
+  },
+  "homepage": "https://github.com/zoubin/sprity-dirs#readme"
+}
