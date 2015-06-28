@@ -1,6 +1,6 @@
 {
   "name": "sprity-dirs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "apply sprity to multiple directories and generate multiple sprites and css",
   "main": "index.js",
   "bin": {
