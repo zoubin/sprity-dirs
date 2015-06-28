@@ -53,7 +53,7 @@ build/
 
 ### cb = sprityDir(dirPattern, getOptsForEachDir)
 
-Returns a callback which return a promise when called. So you can use it with `gulp`.
+Returns a callback which returns a promise when called. So you can use it with `gulp`.
 
 #### dirPattern
 
