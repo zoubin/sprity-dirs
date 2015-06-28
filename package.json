@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "apply sprity to multiple directories and generate multiple sprites and css",
   "main": "index.js",
+  "bin": {
+    "sprity-dirs": "bin/cmd.js"
+  },
   "directories": {
     "example": "example",
     "test": "test"
@@ -14,9 +17,7 @@
     "util-mix": "^1.2.0",
     "xglob": "^0.1.2"
   },
-  "devDependencies": {
-    "sprity": "^1.0.6"
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zoubin/sprity-dirs.git"
