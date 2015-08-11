@@ -2,18 +2,54 @@
 
 Apply [sprity](https://www.npmjs.com/package/sprity) to multiple directories and generate seperate sprite and css for each directory.
 
-## Api Usage
-
-dir.js
+## Example
 
 ```javascript
 var sprityDir = require('sprity-dirs');
-sprityDir('src/*', 'build')()
-.then(function () {
+sprityDir('src/*', 'build')
+  .then(function () {
     console.log('done');
+  })
+  .catch(function (er) {
+    console.log(er);
+  })
+;
+```
+
+```javascript
+var sprityDir = require('sprity-dirs');
+var opts = {
+  to: 'build'
+};
+sprityDir('src/*', opts)
+  .then(function () {
+    console.log('done');
+  })
+  .catch(function (er) {
+    console.log(er);
+  })
+;
+;
+```
+
+```javascript
+var sprityDir = require('sprity-dirs');
+var path = require('path');
+sprityDir('src/*', function (dir) {
+  var name = path.basename(dir);
+  return {
+    out: path.resolve(__dirname, 'build', name),
+    prefix: 'sp-' + name,
+    style: './index.css',
+    name: name,
+    cssPath: '.',
+  };
+})
+.then(function () {
+  console.log('done');
 })
 .catch(function (er) {
-    console.log(er);
+  console.log(er);
 })
 ;
 ```
@@ -51,9 +87,12 @@ build/
     └── index.css
 ```
 
-### cb = sprityDir(dirPattern, getOptsForEachDir)
+## Api Usage
 
-Returns a callback which returns a promise when called. So you can use it with `gulp`.
+### sprityDir(dirPattern, opts)
+
+Returns a promise.
+
 
 #### dirPattern
 
@@ -63,7 +102,7 @@ Pattern used by [xglob](https://www.npmjs.com/package/xglob) to locate the direc
 each corresponding to a sprite with all pics in it.
 Actually, anything that matches the pattern but not a directory will be ignored.
 
-#### getOptsForEachDir
+#### opts
 
 Type: `Function`, `Object`, `String`
 
@@ -72,7 +111,7 @@ When `Function`, it receives the dir path, and should return a [sprity option](h
 
 When `String`, it indicates the directory where all the output sprites directories lie.
 
-When `Object`, it should be [sprity option](https://github.com/sprity/sprity#options) common for all sprites, except the following:
+When `Object`, it should be [sprity option](https://github.com/sprity/sprity#options) common for all sprites, with the following default values:
 
 * `out`. For each sprite, it will be `path.resolve(options.to, dirName)`
 * `prefix`. `sp-{dirName}`
