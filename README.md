@@ -74,7 +74,7 @@ src/
     └── unchecked_40.png
 ```
 
-After `node dir.js`:
+output:
 
 ```
 ⌘ tree build/
